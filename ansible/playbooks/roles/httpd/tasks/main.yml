@@ -1,0 +1,22 @@
+---
+# tasks file for ./roles/httpd
+- name: Install Apache web server
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Create a simple HTML page
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Start and enable Apache service
+  ansible.builtin.service:
+    name: apache2
+    state: started
+    enabled: true

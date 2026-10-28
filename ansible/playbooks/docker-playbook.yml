@@ -1,0 +1,6 @@
+---
+- name: Install Docker on database servers
+  hosts: db
+  become: true
+  roles:
+    - bsmeding.docker

@@ -1,0 +1,6 @@
+---
+- name: Test the httpd role
+  hosts: localhost
+  become: true
+  roles:
+    - ../../httpd
